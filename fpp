@@ -1,12 +1,9 @@
 #!/bin/bash
-# Copyright (c) 2015-present, Facebook, Inc.
-# All rights reserved.
+# Copyright (c) Facebook, Inc. and its affiliates.
 #
-# This source code is licensed under the BSD-style license found in the
-# LICENSE file in the root directory of this source tree. An additional grant
-# of patent rights can be found in the PATENTS file in the same directory.
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
 #
-
 # get the directory of this script so we can execute the related python
 # http://stackoverflow.com/a/246128/212110
 SOURCE=$0
@@ -20,7 +17,7 @@ while [ -h "$SOURCE" ]; do
 done
 BASEDIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-PYTHONCMD="python"
+PYTHONCMD="python3"
 NONINTERACTIVE=false
 
 # Setup according to XDG/Freedesktop standards as specified by
@@ -76,8 +73,8 @@ for opt in "$@"; do
     VERSION="$($PYTHONCMD "$BASEDIR/src/version.py")"
     echo "fpp version $VERSION"
     exit 0
-  elif [ "$opt" == "--python3" ]; then
-    PYTHONCMD="python3"
+  elif [ "$opt" == "--python2" ]; then
+    PYTHONCMD="python2"
   elif [ "$opt" == "--help" -o "$opt" == "-h" ]; then
     $PYTHONCMD "$BASEDIR/src/printHelp.py"
     exit 0

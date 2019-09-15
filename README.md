@@ -47,11 +47,11 @@ Installing PathPicker is easiest with [Homebrew for mac](http://brew.sh/):
 
 ### Linux
 
-On debian systems, installation can be done by installing the debian package from [here](https://github.com/facebook/PathPicker/releases/latest). To build the package locally, run these steps:
+On debian-based systems, run these steps:
 
 ```
 $ git clone https://github.com/facebook/PathPicker.git
-$ cd debian
+$ cd PathPicker/debian
 $ ./package.sh 
 $ ls ../fpp_0.7.2_noarch.deb
 ```
@@ -103,7 +103,7 @@ PathPicker is a combination of a bash script and some small Python modules.
 It essentially has three steps:
 
 * First the bash script redirects all standard out in to a python module that
-parses and extracts out filename candidates. These candiates are extracted with a series of
+parses and extracts out filename candidates. These candidates are extracted with a series of
 regular expressions, since the input to PathPicker can be any stdout from another program. Rather
 than make specialized parsers for each program, we treat everything as noisy input and select candidates via
 regexes. To limit the number of calls to the filesystem (to check existence), we are fairly restrictive on the
@@ -127,4 +127,4 @@ For all documentation and configuration options, see the output of `fpp --help`.
 See the CONTRIBUTING file for how to help out.
 
 ## License
-PathPicker is BSD-licensed. We also provide an additional patent grant.
+PathPicker is MIT licensed.
